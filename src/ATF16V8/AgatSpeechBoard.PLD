@@ -1,0 +1,51 @@
+Name     AgatSpeechBoard ;
+PartNo   00 ;
+Date     10.11.2018 ;
+Revision 01 ;
+Designer Engineer ;
+Company  sintech ;
+Assembly None ;
+Location home ;
+Device   g16v8a ;
+
+/* *************** INPUT PINS *********************/
+PIN  2  = !DS                       ; /* Device Select                                */ 
+PIN  3  = !WR                       ; /* Read/!Write signal                             */ 
+PIN  4  = RES                       ; /* Reset - active low                                */ 
+PIN [5..7] = [A0..2]                ; /* A0 A1 A2 - lower address bytes                   */ 
+PIN  8  = !CLK                       ; /* Apple 2 - F2 freq                   */ 
+
+
+/* *************** OUTPUT PINS *********************/
+PIN 12  =  !Cnt_AL                 ; /*                                 */ 
+PIN 13  =  !Cnt_AH                 ; /*                                 */ 
+PIN 14  =  !Buf_CE                   ; /*                                 */ 
+PIN 15  =  Buf_DIR                   ; /*  AB-high, !BA-low                               */ 
+PIN 16  =  !RAM_OE                   ; /*                                 */ 
+PIN 17  =  !RAM_WE                   ; /*                                 */ 
+PIN 18  =  Synt_CTL                  ; /*                                 */ 
+PIN 19  =  !Synt_STATE                ; /*                                 */ 
+
+/** Declarations and Intermediate Variable Definitions **/
+FIELD ADDR = [A2..0] ;
+
+
+/** Logic Equations **/
+
+AddrL=ADDR:0 & DS & WR;
+AddrH=ADDR:1 & DS & WR;
+DataWR=ADDR:2 & DS & WR;
+DataR=ADDR:2 & DS & !WR;
+
+Cnt_AL=AddrL;
+Cnt_AH=AddrH;
+
+Buf_CE=AddrL # AddrH # DataWR # DataR;
+Buf_DIR=AddrL # AddrH # DataWR;
+
+RAM_OE=!(AddrL # AddrH # DataWR);
+RAM_WE=DataWR;
+
+Synt_CTL=ADDR:3 & DS & WR & CLK;
+Synt_STATE=ADDR:4 & DS & !WR;
+

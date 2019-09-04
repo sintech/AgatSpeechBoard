@@ -1,0 +1,99 @@
+
+*******************************************************************************
+                                AgatSpeechBoard
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g16v8as  Library DLIB-h-40-2
+Created         Wed Sep 04 15:03:12 2019
+Name            AgatSpeechBoard 
+Partno          00 
+Revision        01 
+Date            10.11.2018 
+Designer        Engineer 
+Company         sintech 
+Assembly        None 
+Location        home 
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+ADDR =>
+    A2 , A1 , A0
+
+AddrH =>
+    A0 & !A1 & !A2 & DS & WR
+
+AddrL =>
+    !A0 & !A1 & !A2 & DS & WR
+
+Buf_CE =>
+    !A1 & !A2 & DS & WR
+  # !A0 & A1 & !A2 & DS
+
+Buf_DIR =>
+    !A1 & !A2 & DS & WR
+  # !A0 & A1 & !A2 & DS & WR
+
+Cnt_AH =>
+    A0 & !A1 & !A2 & DS & WR
+
+Cnt_AL =>
+    !A0 & !A1 & !A2 & DS & WR
+
+DataR =>
+    !A0 & A1 & !A2 & DS & !WR
+
+DataWR =>
+    !A0 & A1 & !A2 & DS & WR
+
+RAM_OE =>
+    !A1 & !A2 & DS & WR
+  # !A0 & A1 & !A2 & DS & WR
+
+RAM_WE =>
+    !A0 & A1 & !A2 & DS & WR
+
+Synt_CTL =>
+    A0 & A1 & !A2 & CLK & DS & WR
+
+Synt_STATE =>
+    !A0 & !A1 & A2 & DS & !WR
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    A0                          5        V        -       -       -     
+    A1                          6        V        -       -       -     
+    A2                          7        V        -       -       -     
+    ADDR                        0        F        -       -       -     
+    AddrH                       0        I        1       -       -     
+    AddrL                       0        I        1       -       -     
+ !  Buf_CE                      14       V        2       8       1     
+    Buf_DIR                     15       V        2       8       1     
+ !  CLK                         8        V        -       -       -     
+ !  Cnt_AH                      13       V        1       8       1     
+ !  Cnt_AL                      12       V        1       8       1     
+ !  DS                          2        V        -       -       -     
+    DataR                       0        I        1       -       -     
+    DataWR                      0        I        1       -       -     
+ !  RAM_OE                      16       V        2       8       1     
+ !  RAM_WE                      17       V        1       8       1     
+    RES                         4        V        -       -       -     
+    Synt_CTL                    18       V        1       8       1     
+ !  Synt_STATE                  19       V        1       8       1     
+ !  WR                          3        V        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

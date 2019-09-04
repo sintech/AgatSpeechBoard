@@ -1,0 +1,19 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP KR1803VZH1
+D Voice Synthesis Processor
+$ENDCMP
+#
+$CMP KR1803VZH1_
+D Voice Synthesis Processor
+$ENDCMP
+#
+$CMP TMS5100
+D Voice Synthesis Processor
+$ENDCMP
+#
+$CMP TMS5100NL
+D Voice Synthesis Processor
+$ENDCMP
+#
+#End Doc Library
